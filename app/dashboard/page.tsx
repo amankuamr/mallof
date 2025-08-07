@@ -8,7 +8,7 @@ import {
   JSX
 } from "react";
 
-export default function Dashboard(): JSX.Element {
+export default function Dashboard() {
   const [input, setInput] = useState<string>("");
   const [slotDigits, setSlotDigits] = useState([0, 0, 0, 0, 0]);
   const [reels, setReels] = useState([[0], [0], [0], [0], [0]]);

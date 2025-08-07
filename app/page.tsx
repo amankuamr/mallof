@@ -58,7 +58,7 @@ type WinnerTablesProps = {
   filterDigits?: string;
 };
 
-function WinnerTables({ blur, filterDigits }: WinnerTablesProps): JSX.Element {
+function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
   // Filter players by last digits if filterDigits is provided
   let filtered: Player[] = players as Player[];
   if (filterDigits && filterDigits.length > 0) {
@@ -74,7 +74,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps): JSX.Element {
 
   // Auto-scroll logic
   useEffect(() => {
-    const scrollDiv = (ref: React.RefObject<HTMLDivElement>): void => {
+    const scrollDiv = (ref: React.RefObject<HTMLDivElement | null>): void => {
       if (!ref.current) return;
       let el = ref.current;
       let end = el.scrollHeight - el.clientHeight;
@@ -85,7 +85,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps): JSX.Element {
       function startScroll(): void {
         let start = direction === 1 ? 0 : end;
         let target = direction === 1 ? end : 0;
-        let startTime = null;
+        let startTime: number | null = null;
         function animateScroll(ts: number): void {
           if (!startTime) startTime = ts;
           let progress = Math.min((ts - startTime) / duration, 1);
@@ -138,7 +138,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps): JSX.Element {
     alignItems: "center",
     justifyContent: "center",
   };
-  const avatarStyle = {
+  const avatarStyle: React.CSSProperties = {
     width: 30,
     height: 30,
     borderRadius: "50%",
@@ -234,7 +234,7 @@ type WinnersListProps = {
   filterDigits?: string;
 };
 
-function WinnersList({ blur, filterDigits }: WinnersListProps): JSX.Element {
+function WinnersList({ blur, filterDigits }: WinnersListProps) {
   // Filter players by last digits if filterDigits is provided
   let filtered: Player[] = players as Player[];
   if (filterDigits && filterDigits.length > 0) {
@@ -395,7 +395,7 @@ type SlotMachineDigitsProps = {
   spinning: boolean[];
 };
 
-function SlotMachineDigits({ reels, offsets, spinning }: SlotMachineDigitsProps): JSX.Element {
+function SlotMachineDigits({ reels, offsets, spinning }: SlotMachineDigitsProps) {
   // reels: array of arrays of numbers for each column
   // offsets: array of numbers (px) for each column
   // spinning: array of booleans for each column
@@ -478,7 +478,7 @@ const initialReels = [[0], [0], [0], [0], [0]];
 const initialOffsets = [0, 0, 0, 0, 0];
 const initialSpinning = [false, false, false, false, false];
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const [input, setInput] = React.useState<string>("");
   const [slotDigits, setSlotDigits] = React.useState<number[]>(initialDigits);
   const [reels, setReels] = React.useState<number[][]>(initialReels);
@@ -514,7 +514,7 @@ export default function Home(): JSX.Element {
         // Listen for dashboard digit updates
         if (event.data && event.data.type === "dashboard-digits" && Array.isArray(event.data.digits)) {
           // Reverse the digits, then pad with zeros on the left (right-align)
-          const rawDigits = event.data.digits.map(d => d === "" ? 0 : Number(d)).reverse();
+          const rawDigits = (event.data.digits as (string | number)[]).map((d: string | number) => d === "" ? 0 : Number(d)).reverse();
           const paddedDigits = Array(5 - rawDigits.length).fill(0).concat(rawDigits);
           setInput(event.data.digits.join(""));
           setSlotDigits(prev => {
@@ -645,7 +645,8 @@ export default function Home(): JSX.Element {
     const itemHeight = 80;
     // Clean up any running animations
     for (let i = 0; i < 5; i++) {
-      if (rafRefs.current[i]) cancelAnimationFrame(rafRefs.current[i]);
+      const rafId = rafRefs.current[i];
+      if (rafId !== null) cancelAnimationFrame(rafId);
     }
     // Reverse the input digits, then pad with zeros on the left (right-align)
     const digitsArr = valueToUse.split("").map(Number).reverse();
