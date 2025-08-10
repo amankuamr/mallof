@@ -30,35 +30,35 @@ function PoweredByCard() {
       <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#FFD700', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
         Title Sponsor
       </div>
-      <div style={{ width: '100%', height: 100, minHeight: 60, background: 'rgba(255,255,255,0.10)', borderRadius: 12, marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: 1, overflow: 'hidden' }}>
-        <img src="/images/logoes/singhania.jpeg" alt="Singhania Motors Title Sponsor" style={{ maxHeight: '98%', maxWidth: '98%', objectFit: 'contain', display: 'block' }} />
+      <div style={{ width: '100%', height: 100, minHeight: 60, background: '#fff', borderRadius: 12, marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: 1, overflow: 'hidden' }}>
+        <img src="/images/logoes/singhania.jpeg" alt="Singhania Motors Title Sponsor" style={{ maxHeight: '80%', maxWidth: '80%', objectFit: 'contain', display: 'block' }} />
       </div>
       <div style={{fontSize: 14, color: '#fff', marginBottom: 14, textAlign: 'center'}}>Singhania Motors</div>
       <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#1E90FF', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
         Co Sponsors
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 18 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 32px', marginBottom: 18 }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: 'rgba(255,255,255,0.08)', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
             <img src="/images/logoes/plug.jpeg" alt="Plug Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Plug</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: 'rgba(255,255,255,0.08)', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
             <img src="/images/logoes/geetanjali.png" alt="Geetanjali Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Geetanjali</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: 'rgba(255,255,255,0.08)', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 40, background: '#000', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
             <img src="/images/logoes/spykar.jpeg" alt="Spykar Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Spykar</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: 'rgba(255,255,255,0.08)', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
-            <img src="/images/logoes/starc.jpeg" alt="Starcade Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          <div style={{ width: '100%', height: 40, background: '#e8eaf6', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+            <img src="/images/logoes/starc.jpeg" alt="Starcade Co Sponsor" style={{ width: '90%', height: '90%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Starcade</div>
         </div>
@@ -66,93 +66,93 @@ function PoweredByCard() {
       <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#3CB371', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
         Sponsors
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0 32px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#363436', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/vanhausen.jpeg" alt="VH Women Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>VH Women</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#363436', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/vanhausen.jpeg" alt="VH Men Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>VH Men</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
-            <img src="/images/logoes/crocs.jpeg" alt="Crocs Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+            <img src="/images/logoes/crocs.jpeg" alt="Crocs Sponsor" style={{ width: '160%', height: '160%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Crocs</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
-            <img src="/images/logoes/dunki.png" alt="Dhunki Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          <div style={{ width: '100%', height: 32, background: '#071338', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+            <img src="/images/logoes/dunki.png" alt="Dhunki Sponsor" style={{ width: '170%', height: '170%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Dhunki</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/sunglass.jpeg" alt="Sunglass Hut Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Sunglass Hut</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#284531', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/brewhau.jpeg" alt="Brew Haus Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Brew Haus</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#a0a0a0', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/fashioncase.jpeg" alt="Fashion Case Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Fashion Case</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/hidesign.jpeg" alt="Hi-Design Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Hi-Design</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#000', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/renee.jpeg" alt="Renee Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Renee</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
-            <img src="/images/logoes/max.jpeg" alt="Max Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          <div style={{ width: '100%', height: 32, background: '#000', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+            <img src="/images/logoes/max.jpeg" alt="Max Sponsor" style={{ width: '90%', height: '90%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Max</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#070709', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/lord of drinks.jpeg" alt="LOD Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>LOD</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/Lazeez.png" alt="Lazeez Affaire Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Lazeez Affaire</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#fbc8c5', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/tickled.jpeg" alt="Tickled Pink Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Tickled Pink</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/newu.jpeg" alt="New U Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>New U</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 32, background: 'rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 32, background: '#20211f', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/bella vita.jpeg" alt="Bellavita Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
           <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Bellavita</div>
