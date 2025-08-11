@@ -496,8 +496,8 @@ function WinnersList({ winners }: { winners: Player[] }) {
                   opacity: player ? 1 : 0.3
                 }}
               />
-              <span style={{ color: player ? "red" : "#aaa", fontWeight: "bold", fontSize: 13, marginRight: 10 }}>{player ? player.name : '---'}</span>
-              <span style={{ fontSize: 11, color: player ? '#222' : '#aaa', background: '#FFD700', borderRadius: 5, padding: '1px 7px', fontWeight: 600 }}>{player ? `#${player.number}` : '------'}</span>
+              <span style={{ color: player ? "#fff" : "#aaa", fontWeight: "bold", fontSize: 18, marginRight: 10 }}>{player ? player.name : '---'}</span>
+              <span style={{ fontSize: 16, color: player ? '#222' : '#aaa', background: '#FFD700', borderRadius: 5, padding: '1px 10px', fontWeight: 700 }}>{player ? `#${player.number}` : '------'}</span>
             </div>
           ));
         })()}
