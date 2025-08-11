@@ -469,7 +469,7 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 width: '100%'
               }}
             >
-              {/* Slot number, from bottom (1) to top (12) */}
+              {/* Slot number, from top (1) to bottom (12) */}
               <span style={{
                 background: '#222',
                 color: '#FFD700',
@@ -484,7 +484,7 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 marginRight: 12,
                 border: '2px solid #FFD700',
                 flexShrink: 0
-              }}>{12 - idx}</span>
+              }}>{idx + 1}</span>
               <img
                 src={"https://i.imgur.com/UXb3JYj.png"}
                 alt="player"

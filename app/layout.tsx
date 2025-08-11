@@ -26,6 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
+        <footer className="site-footer">
+          <div>Events of disrinction</div>
+          <div>Codestam</div>
+        </footer>
       </body>
     </html>
   );
