@@ -403,6 +403,8 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
         justifyContent: 'flex-start',
       }}
     >
+      {/* Lottie script for party pop animation */}
+      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
       <h2
         style={{
           textTransform: "uppercase",
@@ -411,75 +413,80 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
           letterSpacing: 2,
         }}
       >
-        WINNERS
+        WINNER
       </h2>
-      {filterDigits ? <>
-      {filtered.slice(0, 4).map((p, i) => (
-        <div
-          key={i}
-          style={{
-            ...cardStyle,
-            background: i === 0
-              ? 'rgba(255, 215, 0, 0.35)'
-              : i === 1
-              ? 'rgba(192, 192, 192, 0.35)'
-              : i === 2
-              ? 'rgba(205, 127, 50, 0.35)'
-              : cardStyle.background,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 18,
-            minHeight: 80,
-            marginBottom: 16,
-            position: "relative",
-          }}
-        >
-          {/* Badge for 1st, 2nd, 3rd */}
-          {i < 3 && (
+      {filterDigits ? (
+        filtered.length > 0 ? (
+          <div style={{ position: 'relative', display: 'inline-block', width: '100%' }}>
+            <dotlottie-wc 
+              src="https://lottie.host/d006eb34-837f-4c28-9acf-334d8f00cfc2/YTUllsdRBR.lottie" 
+              style={{
+                width: '300px',
+                height: '300px',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                pointerEvents: 'none',
+                zIndex: 2
+              }} 
+              speed="1" autoplay loop>
+            </dotlottie-wc>
             <div
               style={{
-                position: 'absolute',
-                top: 8,
-                right: 14,
-                background: i === 0 ? '#FFD700' : i === 1 ? '#C0C0C0' : '#CD7F32',
-                color: '#222',
-                fontWeight: 700,
-                fontSize: 13,
-                borderRadius: 8,
-                padding: '2px 12px',
-                zIndex: 2,
-                boxShadow: '0 2px 6px rgba(0,0,0,0.10)',
-                letterSpacing: 1,
+                ...cardStyle,
+                background: 'rgba(255, 215, 0, 0.35)',
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 18,
+                minHeight: 80,
+                marginBottom: 16,
+                position: "relative",
+                zIndex: 1,
+                maxWidth: 300,
+                width: '100%'
               }}
             >
-              <span role="img" aria-label="trophy">🏆</span> {i === 0 ? '1st' : i === 1 ? '2nd' : '3rd'}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 8,
+                  right: 14,
+                  background: '#FFD700',
+                  color: '#222',
+                  fontWeight: 700,
+                  fontSize: 13,
+                  borderRadius: 8,
+                  padding: '2px 12px',
+                  zIndex: 3,
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.10)',
+                  letterSpacing: 1,
+                }}
+              >
+                <span role="img" aria-label="trophy">🏆</span> Winner
+              </div>
+              <img
+                src={"https://i.imgur.com/UXb3JYj.png"}
+                alt="player"
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 20,
+                  marginBottom: 8,
+                }}
+              />
+              <div style={{ textAlign: "center", width: "100%" }}>
+                <p style={{ margin: 0, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+                  <span style={{ color: "red", fontWeight: "bold" }}>{filtered[0].name}</span>
+                </p>
+                <p style={{ fontSize: 13, margin: "2px 0" }}>#{filtered[0].number}</p>
+              </div>
             </div>
-          )}
-          <img
-            src={"https://i.imgur.com/UXb3JYj.png"}
-            alt="player"
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-              marginBottom: 8,
-            }}
-          />
-          <div style={{ textAlign: "center", width: "100%" }}>
-            <p style={{ margin: 0, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-              <span style={{ color: "red", fontWeight: "bold" }}>{p.name}</span>
-            </p>
-            <p style={{ fontSize: 13, margin: "2px 0" }}>#{p.number}</p>
           </div>
-        </div>
-      ))}
-      {/* Fill with empty cards if less than 4 */}
-      {Array.from({length: 4 - filtered.slice(0, 4).length}).map((_, idx) => (
-        <div
-          key={"empty-winner-"+idx}
-          style={{
+        ) : (
+          <div style={{
             ...cardStyle,
             display: "flex",
             flexDirection: "column",
@@ -489,17 +496,16 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
             minHeight: 80,
             marginBottom: 16,
             position: "relative",
-            opacity: 0.3
-          }}
-        >
-          <div style={{ width: 40, height: 40, borderRadius: 20, marginBottom: 8 }} />
-          <div style={{ textAlign: "center", width: "100%" }}>
-            <p style={{ margin: 0, height: 24 }}></p>
-            <p style={{ fontSize: 13, margin: "2px 0", height: 18 }}></p>
+            fontWeight: 600,
+            fontSize: 22,
+            color: '#fff',
+            letterSpacing: 1,
+            background: 'rgba(255,255,255,0.07)'
+          }}>
+            Winner Awaiting
           </div>
-        </div>
-      ))}
-      </> : (
+        )
+      ) : (
         <div style={{
           ...cardStyle,
           display: "flex",
@@ -516,7 +522,7 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
           letterSpacing: 1,
           background: 'rgba(255,255,255,0.07)'
         }}>
-          Winners Awaiting
+          Winner Awaiting
         </div>
       )}
           </div>
