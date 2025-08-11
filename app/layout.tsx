@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <footer className="site-footer">
-          <div style={{ fontStyle: 'italic', fontSize: '0.75em', opacity: 0.8 }}>Event by Mall Of Ranchi</div>
+          <div style={{ fontStyle: 'italic', fontSize: '0.75em', opacity: 0.8 }}>Event of distinction</div>
           <div style={{ fontStyle: 'italic', fontSize: '0.75em', opacity: 0.8, marginTop: '5px' }}>Tech Codestam</div>
         </footer>
       </body>
