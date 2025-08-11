@@ -385,6 +385,9 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
   if (filterDigits && filterDigits.length > 0) {
     filtered = players.filter((p: Player) => p.number.endsWith(filterDigits));
   }
+  // Only render animation on client
+  const [isClient, setIsClient] = React.useState(false);
+  React.useEffect(() => { setIsClient(true); }, []);
   return (
     <div
       style={{
@@ -418,20 +421,22 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
       {filterDigits ? (
         filtered.length > 0 ? (
           <div style={{ position: 'relative', display: 'inline-block', width: '100%' }}>
-            <dotlottie-wc 
-              src="https://lottie.host/d006eb34-837f-4c28-9acf-334d8f00cfc2/YTUllsdRBR.lottie" 
-              style={{
-                width: '300px',
-                height: '300px',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                pointerEvents: 'none',
-                zIndex: 2
-              }} 
-              speed="1" autoplay loop>
-            </dotlottie-wc>
+            {isClient && (
+              <dotlottie-wc 
+                src="https://lottie.host/d006eb34-837f-4c28-9acf-334d8f00cfc2/YTUllsdRBR.lottie" 
+                style={{
+                  width: '300px',
+                  height: '300px',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  pointerEvents: 'none',
+                  zIndex: 2
+                }} 
+                speed="1" autoplay loop>
+              </dotlottie-wc>
+            )}
             <div
               style={{
                 ...cardStyle,
