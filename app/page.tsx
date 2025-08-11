@@ -207,7 +207,8 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
   // Filter players by last digits if filterDigits is provided
   let filtered: Player[] = players as Player[];
   if (filterDigits && filterDigits.length > 0) {
-    filtered = players.filter((p: Player) => p.number.endsWith(filterDigits));
+    const reversed = filterDigits.split('').reverse().join('');
+    filtered = players.filter((p: Player) => p.number.endsWith(reversed));
   }
   // Dynamically split players between left and right tables
   const mid = Math.ceil(filtered.length / 2);
@@ -379,15 +380,27 @@ type WinnersListProps = {
   filterDigits?: string;
 };
 
-function WinnersList({ blur, filterDigits }: WinnersListProps) {
-  // Filter players by last digits if filterDigits is provided
-  let filtered: Player[] = players as Player[];
-  if (filterDigits && filterDigits.length > 0) {
-    filtered = players.filter((p: Player) => p.number.endsWith(filterDigits));
-  }
+function WinnersList({ winners }: { winners: Player[] }) {
   // Only render animation on client
   const [isClient, setIsClient] = React.useState(false);
+  const [showPartyPop, setShowPartyPop] = React.useState(false);
+  const prevWinnersRef = React.useRef<Player[]>([]);
+
   React.useEffect(() => { setIsClient(true); }, []);
+
+  // Trigger party pop only when a new winner is added
+  React.useEffect(() => {
+    if (
+      prevWinnersRef.current.length < winners.length &&
+      winners.length > 0 &&
+      (!prevWinnersRef.current.length || prevWinnersRef.current[prevWinnersRef.current.length - 1].number !== winners[winners.length - 1].number)
+    ) {
+      setShowPartyPop(true);
+      setTimeout(() => setShowPartyPop(false), 4000); // Hide after 4 seconds
+    }
+    prevWinnersRef.current = winners;
+  }, [winners]);
+
   return (
     <div
       style={{
@@ -398,8 +411,10 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
         WebkitBackdropFilter: "none",
         width: 300,
         minHeight: 440,
-        padding: 24,
-        margin: 20,
+        padding: 0,
+        margin: 0,
+        marginTop: 0,
+        marginRight: 16,
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -412,115 +427,81 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
         style={{
           textTransform: "uppercase",
           fontWeight: "bold",
-          marginBottom: 20,
+          marginBottom: 0,
           letterSpacing: 2,
         }}
       >
         WINNER
       </h2>
-      {filterDigits ? (
-        filtered.length > 0 ? (
-          <div style={{ position: 'relative', display: 'inline-block', width: '100%' }}>
-            {isClient && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<dotlottie-wc src="https://lottie.host/d006eb34-837f-4c28-9acf-334d8f00cfc2/YTUllsdRBR.lottie" style="width:300px;height:300px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2" speed="1" autoplay loop></dotlottie-wc>`
-                }}
-              />
-            )}
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: 7 }}>
+        {isClient && showPartyPop && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `<dotlottie-wc src="https://lottie.host/d006eb34-837f-4c28-9acf-334d8f00cfc2/YTUllsdRBR.lottie" style="width:300px;height:300px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2" speed="1" autoplay></dotlottie-wc>`
+            }}
+          />
+        )}
+        {(() => {
+          const slots = Array(12).fill(null);
+          // Reverse the winners so the first is at the bottom
+          const reversedWinners = [...winners].reverse();
+          const start = Math.max(0, 12 - reversedWinners.length);
+          for (let i = 0; i < reversedWinners.length && i < 12; i++) {
+            slots[start + i] = reversedWinners[i];
+          }
+          return slots.map((player, idx) => (
             <div
+              key={player ? player.number + idx : 'placeholder-' + idx}
               style={{
                 ...cardStyle,
                 background: 'rgba(255, 215, 0, 0.35)',
                 display: "flex",
-                flexDirection: "column",
+                flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "center",
-                padding: 18,
-                minHeight: 80,
-                marginBottom: 16,
+                justifyContent: "flex-start",
+                padding: 10,
+                minHeight: 50,
+                maxHeight: 42,
+                marginBottom: 0,
                 position: "relative",
                 zIndex: 1,
                 maxWidth: 300,
                 width: '100%'
               }}
             >
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 8,
-                  right: 14,
-                  background: '#FFD700',
-                  color: '#222',
-                  fontWeight: 700,
-                  fontSize: 13,
-                  borderRadius: 8,
-                  padding: '2px 12px',
-                  zIndex: 3,
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.10)',
-                  letterSpacing: 1,
-                }}
-              >
-                <span role="img" aria-label="trophy">🏆</span> Winner
-              </div>
+              {/* Slot number, from bottom (1) to top (12) */}
+              <span style={{
+                background: '#222',
+                color: '#FFD700',
+                borderRadius: '50%',
+                width: 28,
+                height: 28,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700,
+                fontSize: 15,
+                marginRight: 12,
+                border: '2px solid #FFD700',
+                flexShrink: 0
+              }}>{12 - idx}</span>
               <img
                 src={"https://i.imgur.com/UXb3JYj.png"}
                 alt="player"
                 style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 20,
-                  marginBottom: 8,
+                  width: 34,
+                  height: 34,
+                  borderRadius: 17,
+                  marginRight: 10,
+                  opacity: player ? 1 : 0.3
                 }}
               />
-              <div style={{ textAlign: "center", width: "100%" }}>
-                <p style={{ margin: 0, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-                  <span style={{ color: "red", fontWeight: "bold" }}>{filtered[0].name}</span>
-                </p>
-                <p style={{ fontSize: 13, margin: "2px 0" }}>#{filtered[0].number}</p>
-              </div>
+              <span style={{ color: player ? "red" : "#aaa", fontWeight: "bold", fontSize: 13, marginRight: 10 }}>{player ? player.name : '---'}</span>
+              <span style={{ fontSize: 11, color: player ? '#222' : '#aaa', background: '#FFD700', borderRadius: 5, padding: '1px 7px', fontWeight: 600 }}>{player ? `#${player.number}` : '------'}</span>
             </div>
-          </div>
-        ) : (
-          <div style={{
-            ...cardStyle,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 18,
-            minHeight: 80,
-            marginBottom: 16,
-            position: "relative",
-            fontWeight: 600,
-            fontSize: 22,
-            color: '#fff',
-            letterSpacing: 1,
-            background: 'rgba(255,255,255,0.07)'
-          }}>
-            Winner Awaiting
-          </div>
-        )
-      ) : (
-        <div style={{
-          ...cardStyle,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 18,
-          minHeight: 80,
-          marginBottom: 16,
-          position: "relative",
-          fontWeight: 600,
-          fontSize: 22,
-          color: '#fff',
-          letterSpacing: 1,
-          background: 'rgba(255,255,255,0.07)'
-        }}>
-          Winner Awaiting
-        </div>
-      )}
+          ));
+        })()}
+      </div>
           </div>
   );
 }
@@ -531,9 +512,9 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
 function getFilterDigits(slotDigits: number[]): string {
   // slotDigits is an array of 6 numbers, right-aligned, e.g. [0,0,0,0,4,1] for '14'
   // We want to extract the non-zero digits from the right, in order
-  const digits = slotDigits.filter((d, i) => !(i === 0 && d === 0)).join("");
-  // Remove leading zeros
-  return digits.replace(/^0+/, "");
+  const digits = slotDigits.join("");
+  // Always return a 6-digit string, padded with leading zeros
+  return digits.padStart(6, "0");
 }
 // Slot machine digits component
 type SlotMachineDigitsProps = {
@@ -634,6 +615,8 @@ export default function Home() {
   const [spinning, setSpinning] = React.useState<boolean[]>(initialSpinning);
   const [currentCol, setCurrentCol] = React.useState<number>(5); // Start from rightmost
   const [allRevealed, setAllRevealed] = React.useState<boolean>(false);
+  // Winner stacking state
+  const [recentWinners, setRecentWinners] = React.useState<Player[]>([]);
   // blurActive state removed; blur overlays are now controlled by allDigitsFilled
   const rafRefs = React.useRef<(number | null)[]>([null, null, null, null, null, null]);
 
@@ -650,14 +633,12 @@ export default function Home() {
       if (Array.isArray(digitsArr)) {
         // Reverse the digits, then pad with zeros on the left (right-align)
         const rawDigits = digitsArr.map((d: string | number) => d === "" ? 0 : Number(d)).reverse();
-        const paddedDigits = Array(6 - rawDigits.length).fill(0).concat(rawDigits);
+        const paddedDigits = Array(6 - rawDigits.length).fill(0).concat(rawDigits).map(d => Number(d));
         setInput(digitsArr.join(""));
         setSlotDigits(prev => {
-          // Animate only changed digits
+          // Always animate every digit
           paddedDigits.forEach((digit, idx) => {
-            if (digit !== prev[idx]) {
-              animateDigit(idx, digit);
-            }
+            animateDigit(idx, digit);
           });
           return paddedDigits;
         });
@@ -665,6 +646,33 @@ export default function Home() {
     });
     return () => unsubscribe();
   }, []);
+
+  // Winner stacking logic
+  React.useEffect(() => {
+    // Get the current filterDigits and filtered
+    const filterDigits = getFilterDigits(slotDigits);
+    let filtered: Player[] = players as Player[];
+    if (filterDigits && filterDigits.length > 0) {
+      filtered = players.filter((p: Player) => p.number.endsWith(filterDigits));
+    }
+    let timeoutId: NodeJS.Timeout | null = null;
+    if (
+      input.length === 6 &&
+      Array.isArray(filtered) &&
+      filtered.length > 0
+    ) {
+      timeoutId = setTimeout(() => {
+        setRecentWinners(prev => {
+          if (prev.some(w => w.number === filtered[0].number)) return prev;
+          const next = [...prev, filtered[0]];
+          return next.length > 12 ? next.slice(-12) : next;
+        });
+      }, 2000);
+    }
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [slotDigits]);
 
   // Animate a single digit in the slot machine
   const animateDigit = (idx: number, digit: number): void => {
@@ -762,9 +770,13 @@ export default function Home() {
 
   // Handle input change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Only allow digits, and max 1 digit
-    const val = e.target.value.replace(/\D/g, "").slice(0, 5);
+    // Only allow digits, and max 6 digits
+    const val = e.target.value.replace(/\D/g, "").slice(0, 6);
     setInput(val);
+    // Update slotDigits to match the input, right-aligned and padded with zeros
+    const digitsArr = val.split("").map(Number).reverse();
+    const paddedDigits = Array(6 - digitsArr.length).fill(0).concat(digitsArr);
+    setSlotDigits(paddedDigits);
   };
 
   // Handle search (slot machine spin)
@@ -782,100 +794,102 @@ export default function Home() {
     }
     // Reverse the input digits, then pad with zeros on the left (right-align)
     const digitsArr = valueToUse.split("").map(Number).reverse();
-    const paddedDigits = Array(6 - digitsArr.length).fill(0).concat(digitsArr);
+    const paddedDigits = Array(6 - digitsArr.length).fill(0).concat(digitsArr).map(d => Number(d));
     // Animate all filled digits
     paddedDigits.forEach((digit, idx) => {
-      let arr = [];
-      for (let j = 0; j < 20; j++) arr.push(Math.floor(Math.random() * 10));
-      arr.push(Number(digit));
-      setReels(prev => {
-        const next = [...prev];
-        next[idx] = arr;
-        return next;
-      });
-      setSpinning(prev => {
-        const next = [...prev];
-        next[idx] = true;
-        return next;
-      });
-      setOffsets(prev => {
-        const next = [...prev];
-        next[idx] = 0;
-        return next;
-      });
-      // Animate spin for each digit
-      let pos = 0;
-      let speed = 24 + idx * 2;
-      let stopping = false;
-      const direction = idx % 2 === 0 ? 1 : -1;
-      const reelLen = arr.length;
-      const spin = () => {
-        if (!stopping) {
-          pos += direction * -speed;
-          if (Math.abs(pos) >= reelLen * itemHeight) {
-            pos = 0;
-          }
-          setOffsets(prev => {
-            const next = [...prev];
-            next[idx] = pos;
-            return next;
-          });
-          rafRefs.current[idx] = requestAnimationFrame(spin);
-        } else {
-          // Decelerate and land on final digit
-          const finalIndex = reelLen - 1;
-          const finalOffset = direction * -itemHeight * finalIndex;
-          const decelFrames = 32;
-          let frame = 0;
-          const decel = () => {
-            frame++;
-            const t = frame / decelFrames;
-            const ease = 1 - Math.pow(1 - t, 2);
-            const currentOffset = pos + (finalOffset - pos) * ease;
+      if (typeof digit === 'number' && typeof slotDigits[idx] === 'number' && digit !== slotDigits[idx]) {
+        let arr = [];
+        for (let j = 0; j < 20; j++) arr.push(Math.floor(Math.random() * 10));
+        arr.push(Number(digit));
+        setReels(prev => {
+          const next = [...prev];
+          next[idx] = arr;
+          return next;
+        });
+        setSpinning(prev => {
+          const next = [...prev];
+          next[idx] = true;
+          return next;
+        });
+        setOffsets(prev => {
+          const next = [...prev];
+          next[idx] = 0;
+          return next;
+        });
+        // Animate spin for each digit
+        let pos = 0;
+        let speed = 24 + idx * 2;
+        let stopping = false;
+        const direction = idx % 2 === 0 ? 1 : -1;
+        const reelLen = arr.length;
+        const spin = () => {
+          if (!stopping) {
+            pos += direction * -speed;
+            if (Math.abs(pos) >= reelLen * itemHeight) {
+              pos = 0;
+            }
             setOffsets(prev => {
               const next = [...prev];
-              next[idx] = currentOffset;
+              next[idx] = pos;
               return next;
             });
-            if (frame < decelFrames) {
-              rafRefs.current[idx] = requestAnimationFrame(decel);
-            } else {
+            rafRefs.current[idx] = requestAnimationFrame(spin);
+          } else {
+            // Decelerate and land on final digit
+            const finalIndex = reelLen - 1;
+            const finalOffset = direction * -itemHeight * finalIndex;
+            const decelFrames = 32;
+            let frame = 0;
+            const decel = () => {
+              frame++;
+              const t = frame / decelFrames;
+              const ease = 1 - Math.pow(1 - t, 2);
+              const currentOffset = pos + (finalOffset - pos) * ease;
               setOffsets(prev => {
                 const next = [...prev];
-                next[idx] = finalOffset;
+                next[idx] = currentOffset;
                 return next;
               });
-              setTimeout(() => {
-                setReels(prev => {
-                  const next = [...prev];
-                  next[idx] = [Number(digit)];
-                  return next;
-                });
+              if (frame < decelFrames) {
+                rafRefs.current[idx] = requestAnimationFrame(decel);
+              } else {
                 setOffsets(prev => {
                   const next = [...prev];
-                  next[idx] = 0;
+                  next[idx] = finalOffset;
                   return next;
                 });
-                setSpinning(prev => {
-                  const next = [...prev];
-                  next[idx] = false;
-                  return next;
-                });
-                if (idx === 5) {
-                  setSlotDigits(paddedDigits);
-                  setAnimating(false);
-                  // setBlurActive removed: blur overlays are now controlled by allDigitsFilled
-                }
-              }, 60);
-            }
-          };
-          rafRefs.current[idx] = requestAnimationFrame(decel);
-        }
-      };
-      rafRefs.current[idx] = requestAnimationFrame(spin);
-      setTimeout(() => {
-        stopping = true;
-      }, 900 + idx * 100);
+                setTimeout(() => {
+                  setReels(prev => {
+                    const next = [...prev];
+                    next[idx] = [Number(digit)];
+                    return next;
+                  });
+                  setOffsets(prev => {
+                    const next = [...prev];
+                    next[idx] = 0;
+                    return next;
+                  });
+                  setSpinning(prev => {
+                    const next = [...prev];
+                    next[idx] = false;
+                    return next;
+                  });
+                  if (idx === 5) {
+                    setSlotDigits(paddedDigits);
+                    setAnimating(false);
+                    // setBlurActive removed: blur overlays are now controlled by allDigitsFilled
+                  }
+                }, 60);
+              }
+            };
+            rafRefs.current[idx] = requestAnimationFrame(decel);
+          }
+        };
+        rafRefs.current[idx] = requestAnimationFrame(spin);
+        setTimeout(() => {
+          stopping = true;
+        }, 900 + idx * 100);
+      }
     });
   };
 
@@ -924,8 +938,8 @@ export default function Home() {
         style={{
           flex: 1,
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
           flexDirection: "row",
           marginTop: 40,
         }}
@@ -981,15 +995,15 @@ export default function Home() {
                 marginBottom: 18,
                 background: "linear-gradient(90deg, #000 0%, #ff0000 50%, #000 100%)"
               }} />
-              <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <WinnerTables blur={!allDigitsFilled} filterDigits={allDigitsFilled ? getFilterDigits(slotDigits) : undefined} />
-              </div>
+              <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+              <WinnerTables blur={!allDigitsFilled} filterDigits={input} />
+            </div>
             </div>
           </div>
         </div>
         {/* Right Side: Winners List */}
-        <div style={{ width: 340, display: "flex", justifyContent: "flex-end" }}>
-          <WinnersList blur={!allDigitsFilled} filterDigits={input.length === 6 ? getFilterDigits(slotDigits) : undefined} />
+        <div style={{ width: 340, display: "flex", justifyContent: "flex-end", alignItems: "flex-start", marginTop: -90 }}>
+          <WinnersList winners={recentWinners.slice(-12)} />
         </div>
       </div>
     </div>
