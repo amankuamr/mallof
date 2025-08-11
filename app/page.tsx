@@ -189,6 +189,8 @@ import React, { useState, useRef, useEffect } from "react";
 // Import as .js because playerData.js is not a TypeScript module
 // @ts-ignore: Importing JS module in TS file
 import { players } from "./playerData.js";
+import getFirebaseDb from "./firebaseConfig";
+import { ref, onValue } from "firebase/database";
 
 // Define Player type if not already defined
 interface Player {
@@ -632,49 +634,34 @@ export default function Home() {
   const [allRevealed, setAllRevealed] = React.useState<boolean>(false);
   // blurActive state removed; blur overlays are now controlled by allDigitsFilled
   const rafRefs = React.useRef<(number | null)[]>([null, null, null, null, null, null]);
-  const bcRef = React.useRef<BroadcastChannel | null>(null);
 
   // Blur overlays are active unless all 6 digits are filled
   const allDigitsFilled = slotDigits.length === 6 && slotDigits.every(d => typeof d === 'number');
   const blurForLists = !allDigitsFilled;
 
+  // Listen for dashboardDigits changes from Firebase
   React.useEffect(() => {
-    if (typeof window !== "undefined" && "BroadcastChannel" in window) {
-      bcRef.current = new window.BroadcastChannel("jackpot-counter");
-      bcRef.current.onmessage = (event: MessageEvent) => {
-        if (event.data && event.data.type === "search" && event.data.value) {
-          // Reset counter state before animating
-          setInput(event.data.value);
-          setSlotDigits([0,0,0,0,0,0]);
-          setReels([[0],[0],[0],[0],[0],[0]]);
-          setOffsets([0,0,0,0,0,0]);
-          setSpinning([false, false, false, false, false, false]);
-          setCurrentCol(5);
-          setTimeout(() => {
-            handleSearch(event.data.value);
-          }, 0);
-        }
-        // Listen for dashboard digit updates
-        if (event.data && event.data.type === "dashboard-digits" && Array.isArray(event.data.digits)) {
-          // Reverse the digits, then pad with zeros on the left (right-align)
-          const rawDigits = (event.data.digits as (string | number)[]).map((d: string | number) => d === "" ? 0 : Number(d)).reverse();
-          const paddedDigits = Array(6 - rawDigits.length).fill(0).concat(rawDigits);
-          setInput(event.data.digits.join(""));
-          setSlotDigits(prev => {
-            // Animate only changed digits
-            paddedDigits.forEach((digit, idx) => {
-              if (digit !== prev[idx]) {
-                animateDigit(idx, digit);
-              }
-            });
-            return paddedDigits;
+    const db = getFirebaseDb();
+    const digitsRef = ref(db, "dashboardDigits/digits");
+    const unsubscribe = onValue(digitsRef, (snapshot) => {
+      const digitsArr = snapshot.val();
+      if (Array.isArray(digitsArr)) {
+        // Reverse the digits, then pad with zeros on the left (right-align)
+        const rawDigits = digitsArr.map((d: string | number) => d === "" ? 0 : Number(d)).reverse();
+        const paddedDigits = Array(6 - rawDigits.length).fill(0).concat(rawDigits);
+        setInput(digitsArr.join(""));
+        setSlotDigits(prev => {
+          // Animate only changed digits
+          paddedDigits.forEach((digit, idx) => {
+            if (digit !== prev[idx]) {
+              animateDigit(idx, digit);
+            }
           });
-        }
-      };
-    }
-    return () => {
-      if (bcRef.current) bcRef.current.close();
-    };
+          return paddedDigits;
+        });
+      }
+    });
+    return () => unsubscribe();
   }, []);
 
   // Animate a single digit in the slot machine

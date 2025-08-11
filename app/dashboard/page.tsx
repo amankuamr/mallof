@@ -7,6 +7,8 @@ import {
   ChangeEvent,
   JSX
 } from "react";
+import getFirebaseDb from "../firebaseConfig";
+import { ref, set } from "firebase/database";
 
 export default function Dashboard() {
   const [input, setInput] = useState<string>("");
@@ -17,17 +19,10 @@ export default function Dashboard() {
   const [spinning, setSpinning] = useState<boolean[]>([false, false, false, false, false, false]);
   const [currentCol, setCurrentCol] = useState<number>(5);
   const rafRefs = useRef<(number | null)[]>([null, null, null, null, null, null]);
-  const bcRef = useRef<BroadcastChannel | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && "BroadcastChannel" in window) {
-      bcRef.current = new window.BroadcastChannel("jackpot-counter");
-    }
     if (inputRef.current) inputRef.current.focus();
-    return () => {
-      if (bcRef.current) bcRef.current.close();
-    };
   }, [inputRef]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,9 +35,18 @@ export default function Dashboard() {
   const handleSearch = (): void => {
     if (!input || animating) return;
 
-    if (bcRef.current) {
-      bcRef.current.postMessage({ type: "search", value: input });
-    }
+    // Write digits to Firebase
+    const db = getFirebaseDb();
+    set(ref(db, "dashboardDigits"), {
+      digits: input.split("")
+    })
+      .then(() => {
+        console.log("Digits written to Firebase:", input.split(""));
+      })
+      .catch((err) => {
+        console.error("Error writing digits to Firebase:", err);
+        alert("Error writing to Firebase: " + err.message);
+      });
 
     setAnimating(true);
     const itemHeight = 80;
