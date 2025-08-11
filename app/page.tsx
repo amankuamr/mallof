@@ -299,7 +299,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
           <span>Customer Name</span>
-          <span>Coupan Code</span>
+          <span>Coupon Code</span>
         </div>
         <div
           ref={leftRef}
@@ -337,7 +337,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
           <span>Customer Name</span>
-          <span>Coupan Code</span>
+          <span>Coupon Code</span>
         </div>
         <div
           ref={rightRef}
