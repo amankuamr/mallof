@@ -298,7 +298,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       {/* Left Table */}
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
-          <span>NAME</span>
+          <span>Customer Name</span>
           <span>Coupan Code</span>
         </div>
         <div
@@ -336,7 +336,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       {/* Right Table */}
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
-          <span>NAME</span>
+          <span>Customer Name</span>
           <span>Coupan Code</span>
         </div>
         <div
