@@ -27,136 +27,159 @@ function PoweredByCard() {
       }}
     >
       {/* Sponsors Sequence as per provided order */}
-      <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#FFD700', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
+      <div style={{
+        width: '100%',
+        fontWeight: 900,
+        fontSize: 15,
+        color: '#FFD700',
+        marginBottom: 16,
+        letterSpacing: 1.5,
+        textAlign: 'left',
+        textTransform: 'uppercase',
+        fontFamily: 'Inter, Roboto, sans-serif',
+        borderLeft: '3px solid #FFD700',
+        padding: '1px 0 1px 10px',
+        boxShadow: '0 1px 4px 0 rgba(255,215,0,0.08)'
+      }}>
         Title Sponsor
       </div>
-      <div style={{ width: '100%', height: 100, minHeight: 60, background: '#fff', borderRadius: 12, marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: 1, overflow: 'hidden' }}>
-        <img src="/images/logoes/singhania.jpeg" alt="Singhania Motors Title Sponsor" style={{ maxHeight: '80%', maxWidth: '80%', objectFit: 'contain', display: 'block' }} />
+      <div style={{ width: '100%', height: 100, minHeight: 60, background: '#fff', borderRadius: 12, marginBottom: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: 1, overflow: 'hidden' }}>
+      <img src="/images/logoes/singhania.jpeg" alt="Singhania Motors Title Sponsor" style={{ maxHeight: '80%', maxWidth: '80%', objectFit: 'contain', display: 'block' }} />
       </div>
-      <div style={{fontSize: 14, color: '#fff', marginBottom: 14, textAlign: 'center'}}>Singhania Motors</div>
-      <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#1E90FF', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
-        Co Sponsors
+      <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.18)', margin: '8px 0 8px 0', borderRadius: 1 }} />
+      <div style={{marginTop: 8}}>
+        <div style={{
+          width: '100%',
+          fontWeight: 900,
+          fontSize: 15,
+          color: '#1E90FF',
+          marginBottom: 10,
+          letterSpacing: 1.5,
+          textAlign: 'left',
+          textTransform: 'uppercase',
+          fontFamily: 'Inter, Roboto, sans-serif',
+          borderLeft: '3px solid #1E90FF',
+          padding: '1px 0 1px 10px',
+          boxShadow: '0 1px 4px 0 rgba(30,144,255,0.08)'
+        }}>
+          Co Sponsors
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: 8 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+              <img src="/images/logoes/plug.jpeg" alt="Plug Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+              <img src="/images/logoes/geetanjali.png" alt="Geetanjali Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <div style={{ width: '100%', height: 40, background: '#000', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+              <img src="/images/logoes/spykar.jpeg" alt="Spykar Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <div style={{ width: '100%', height: 40, background: '#e8eaf6', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
+              <img src="/images/logoes/starc.jpeg" alt="Starcade Co Sponsor" style={{ width: '90%', height: '90%', objectFit: 'contain', display: 'block' }} />
+            </div>
+          </div>
+        </div>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 32px', marginBottom: 18 }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
-            <img src="/images/logoes/plug.jpeg" alt="Plug Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
-          </div>
-          <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Plug</div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
-            <img src="/images/logoes/geetanjali.png" alt="Geetanjali Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
-          </div>
-          <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Geetanjali</div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: '#000', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
-            <img src="/images/logoes/spykar.jpeg" alt="Spykar Co Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
-          </div>
-          <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Spykar</div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ width: '100%', height: 40, background: '#e8eaf6', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
-            <img src="/images/logoes/starc.jpeg" alt="Starcade Co Sponsor" style={{ width: '90%', height: '90%', objectFit: 'contain', display: 'block' }} />
-          </div>
-          <div style={{fontSize: 13, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Starcade</div>
-        </div>
-      </div>
-      <div style={{ width: '100%', fontWeight: 700, fontSize: 16, color: '#3CB371', marginBottom: 6, letterSpacing: 0.5, textAlign: 'center' }}>
+      <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.18)', margin: '8px 0 8px 0', borderRadius: 1 }} />
+      <div style={{
+        width: '100%',
+        fontWeight: 900,
+        fontSize: 15,
+        color: '#3CB371',
+        margin: '16px 0 10px 0',
+        letterSpacing: 1.5,
+        textAlign: 'left',
+        textTransform: 'uppercase',
+        fontFamily: 'Inter, Roboto, sans-serif',
+        borderLeft: '3px solid #3CB371',
+        padding: '1px 0 1px 10px',
+        boxShadow: '0 1px 4px 0 rgba(60,179,113,0.08)'
+      }}>
         Sponsors
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0 32px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#363436', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/vanhausen.jpeg" alt="VH Women Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>VH Women</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#363436', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/vanhausen.jpeg" alt="VH Men Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>VH Men</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/crocs.jpeg" alt="Crocs Sponsor" style={{ width: '160%', height: '160%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Crocs</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#071338', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/dunki.png" alt="Dhunki Sponsor" style={{ width: '170%', height: '170%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Dhunki</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/sunglass.jpeg" alt="Sunglass Hut Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Sunglass Hut</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#284531', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/brewhau.jpeg" alt="Brew Haus Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Brew Haus</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#a0a0a0', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/fashioncase.jpeg" alt="Fashion Case Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Fashion Case</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/hidesign.jpeg" alt="Hi-Design Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Hi-Design</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#000', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/renee.jpeg" alt="Renee Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Renee</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#000', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/max.jpeg" alt="Max Sponsor" style={{ width: '90%', height: '90%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Max</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#070709', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/lord of drinks.jpeg" alt="LOD Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>LOD</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/Lazeez.png" alt="Lazeez Affaire Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Lazeez Affaire</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fbc8c5', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/tickled.jpeg" alt="Tickled Pink Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Tickled Pink</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#fff', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/newu.jpeg" alt="New U Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>New U</div>
-        </div>
+                  </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <div style={{ width: '100%', height: 32, background: '#20211f', borderRadius: 8, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.2, overflow: 'hidden' }}>
             <img src="/images/logoes/bella vita.jpeg" alt="Bellavita Sponsor" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
-          <div style={{fontSize: 12, color: '#fff', marginBottom: 6, textAlign: 'center'}}>Bellavita</div>
-        </div>
+                  </div>
       </div>
     </div>
   );
@@ -273,7 +296,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
           <span>NAME</span>
-          <span>NUMBER</span>
+          <span>Coupan Code</span>
         </div>
         <div
           ref={leftRef}
@@ -311,7 +334,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       <div style={{ ...cardStyle, padding: 0, flex: 1, maxHeight: 300, minHeight: 300, margin: 0, position: 'relative', display: 'flex', flexDirection: 'column' }}>
         <div style={{ ...tableHeaderStyle, padding: '24px 24px 10px 24px' }}>
           <span>NAME</span>
-          <span>NUMBER</span>
+          <span>Coupan Code</span>
         </div>
         <div
           ref={rightRef}
@@ -502,7 +525,7 @@ function WinnersList({ blur, filterDigits }: WinnersListProps) {
 
 // Helper to get the filter string from slotDigits
 function getFilterDigits(slotDigits: number[]): string {
-  // slotDigits is an array of 5 numbers, right-aligned, e.g. [0,0,0,4,1] for '14'
+  // slotDigits is an array of 6 numbers, right-aligned, e.g. [0,0,0,0,4,1] for '14'
   // We want to extract the non-zero digits from the right, in order
   const digits = slotDigits.filter((d, i) => !(i === 0 && d === 0)).join("");
   // Remove leading zeros
@@ -527,7 +550,7 @@ function SlotMachineDigits({ reels, offsets, spinning }: SlotMachineDigitsProps)
         left: "46%",
         transform: "translate(-50%, -50%)",
         display: "flex",
-        gap: 16,
+        gap: 7,
         zIndex: 2,
         pointerEvents: "none",
       }}
@@ -593,10 +616,10 @@ const style = `
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 `;
 
-const initialDigits = [0, 0, 0, 0, 0];
-const initialReels = [[0], [0], [0], [0], [0]];
-const initialOffsets = [0, 0, 0, 0, 0];
-const initialSpinning = [false, false, false, false, false];
+const initialDigits = [0, 0, 0, 0, 0, 0];
+const initialReels = [[0], [0], [0], [0], [0], [0]];
+const initialOffsets = [0, 0, 0, 0, 0, 0];
+const initialSpinning = [false, false, false, false, false, false];
 
 export default function Home() {
   const [input, setInput] = React.useState<string>("");
@@ -605,14 +628,14 @@ export default function Home() {
   const [offsets, setOffsets] = React.useState<number[]>(initialOffsets);
   const [animating, setAnimating] = React.useState<boolean>(false);
   const [spinning, setSpinning] = React.useState<boolean[]>(initialSpinning);
-  const [currentCol, setCurrentCol] = React.useState<number>(4); // Start from rightmost
+  const [currentCol, setCurrentCol] = React.useState<number>(5); // Start from rightmost
   const [allRevealed, setAllRevealed] = React.useState<boolean>(false);
   // blurActive state removed; blur overlays are now controlled by allDigitsFilled
-  const rafRefs = React.useRef<(number | null)[]>([null, null, null, null, null]);
+  const rafRefs = React.useRef<(number | null)[]>([null, null, null, null, null, null]);
   const bcRef = React.useRef<BroadcastChannel | null>(null);
 
-  // Blur overlays are active unless all 5 digits are filled and not zero
-  const allDigitsFilled = slotDigits.every(d => typeof d === 'number' && d !== 0);
+  // Blur overlays are active unless all 6 digits are filled
+  const allDigitsFilled = slotDigits.length === 6 && slotDigits.every(d => typeof d === 'number');
   const blurForLists = !allDigitsFilled;
 
   React.useEffect(() => {
@@ -622,11 +645,11 @@ export default function Home() {
         if (event.data && event.data.type === "search" && event.data.value) {
           // Reset counter state before animating
           setInput(event.data.value);
-          setSlotDigits([0,0,0,0,0]);
-          setReels([[0],[0],[0],[0],[0]]);
-          setOffsets([0,0,0,0,0]);
-          setSpinning([false, false, false, false, false]);
-          setCurrentCol(4);
+          setSlotDigits([0,0,0,0,0,0]);
+          setReels([[0],[0],[0],[0],[0],[0]]);
+          setOffsets([0,0,0,0,0,0]);
+          setSpinning([false, false, false, false, false, false]);
+          setCurrentCol(5);
           setTimeout(() => {
             handleSearch(event.data.value);
           }, 0);
@@ -635,7 +658,7 @@ export default function Home() {
         if (event.data && event.data.type === "dashboard-digits" && Array.isArray(event.data.digits)) {
           // Reverse the digits, then pad with zeros on the left (right-align)
           const rawDigits = (event.data.digits as (string | number)[]).map((d: string | number) => d === "" ? 0 : Number(d)).reverse();
-          const paddedDigits = Array(5 - rawDigits.length).fill(0).concat(rawDigits);
+          const paddedDigits = Array(6 - rawDigits.length).fill(0).concat(rawDigits);
           setInput(event.data.digits.join(""));
           setSlotDigits(prev => {
             // Animate only changed digits
@@ -764,13 +787,13 @@ export default function Home() {
     setAnimating(true);
     const itemHeight = 80;
     // Clean up any running animations
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const rafId = rafRefs.current[i];
       if (rafId !== null) cancelAnimationFrame(rafId);
     }
     // Reverse the input digits, then pad with zeros on the left (right-align)
     const digitsArr = valueToUse.split("").map(Number).reverse();
-    const paddedDigits = Array(5 - digitsArr.length).fill(0).concat(digitsArr);
+    const paddedDigits = Array(6 - digitsArr.length).fill(0).concat(digitsArr);
     // Animate all filled digits
     paddedDigits.forEach((digit, idx) => {
       let arr = [];
@@ -849,7 +872,7 @@ export default function Home() {
                   next[idx] = false;
                   return next;
                 });
-                if (idx === 4) {
+                if (idx === 5) {
                   setSlotDigits(paddedDigits);
                   setAnimating(false);
                   // setBlurActive removed: blur overlays are now controlled by allDigitsFilled
@@ -885,7 +908,7 @@ export default function Home() {
     >
       {/* Gradient Blur Dots */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: 40, left: 40, width: 360, height: 360, borderRadius: "100%", background: "radial-gradient(circle at 30% 30%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(36px)" }} />
+        <div style={{ position: "absolute", top: 400, left: 40, width: 360, height: 460, borderRadius: "120%", background: "radial-gradient(circle at 30% 30%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(36px)" }} />
         <div style={{ position: "absolute", bottom: 60, right: 60, width: 320, height: 320, borderRadius: "100%", background: "radial-gradient(circle at 70% 70%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(44px)" }} />
         <div style={{ position: "absolute", top: "50%", left: 0, width: 240, height: 240, borderRadius: "100%", background: "radial-gradient(circle at 50% 50%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(32px)", transform: "translateY(-50%)" }} />
         <div style={{ position: "absolute", bottom: 120, left: 120, width: 200, height: 200, borderRadius: "100%", background: "radial-gradient(circle at 50% 50%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(28px)" }} />
@@ -900,7 +923,7 @@ export default function Home() {
           top: 18,
           left: "50%",
           transform: "translateX(-50%)",
-          height: 120,
+          height: 190,
           maxWidth: "90vw",
           width: "auto",
           display: "block",
@@ -915,13 +938,13 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "row",
+          marginTop: 40,
         }}
       >
         {/* Left Side: Powered By Card */}
-        <div style={{ width: 360, display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", height: "100%", marginTop: -40 }}>
+        <div style={{ width: 360, display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", height: "100%", marginTop: -100 }}>
           <div style={{ marginBottom: 12, marginTop: 8, fontSize: 28, fontWeight: 700, letterSpacing: 1 }}>
-            <span style={{ color: "red" }}>Powered</span>{" "}
-            <span style={{ color: "#fff" }}>By</span>
+            <span style={{ color: "red" }}>Sponsors</span>
           </div>
           <PoweredByCard />
         </div>
@@ -934,45 +957,20 @@ export default function Home() {
               justifyContent: "center",
               marginBottom: 10,
               padding: "10px 28px",
-              marginTop: 24,
             }}>
-              <span style={{ fontSize: 36, fontWeight: 700, marginRight: 16 }}>
-                <span style={{ color: "red" }}>Lets</span>{" "}
-                <span style={{ color: "#fff" }}>Begin</span>
+              <span style={{ fontSize: 20, fontWeight: 700, marginRight: 16, paddingTop: 60, marginBottom: -60, display: 'inline-block' }}>
+                <span style={{ color: "#fff" }}>Mega </span>
+                <span style={{ color: "red" }}>Lucky</span>
+                <span style={{ color: "#fff" }}> Draw - </span>
+                <span style={{ color: "red" }}>2025</span>
               </span>
               {/* Digit input and display removed as requested */}
               {/* Search button removed as requested */}
-              {/* Dashboard Button */}
-              <a
-                href="/dashboard"
-                style={{
-                  marginLeft: 12,
-                  width: 36,
-                  height: 36,
-                  borderRadius: "50%",
-                  border: "2px solid #fff",
-                  background: "#222",
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textDecoration: "none",
-                  fontSize: 18,
-                  fontWeight: 700,
-                  boxShadow: "0 2px 8px 0 rgba(31, 38, 135, 0.10)",
-                  transition: "background 0.2s, border 0.2s",
-                  cursor: "pointer",
-                }}
-                title="Go to Dashboard"
-                aria-label="Go to Dashboard"
-              >
-                &#x1F4CA;
-              </a>
             </div>
             {/* Slot Machine Digits Overlay */}
-            <div style={{ position: "relative", width: "500px", height: "auto" }}>
+            <div style={{ position: "relative", width: "500px", height: "auto", marginTop: 40 }}>
               <img
-                src="/images/Group 34775 (1).png"
+                src="/images/Group 34782.png"
                 alt="Centered"
                 style={{
                   width: "500px",
@@ -995,14 +993,14 @@ export default function Home() {
                 background: "linear-gradient(90deg, #000 0%, #ff0000 50%, #000 100%)"
               }} />
               <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <WinnerTables blur={!allDigitsFilled} filterDigits={getFilterDigits(slotDigits)} />
+                <WinnerTables blur={!allDigitsFilled} filterDigits={allDigitsFilled ? getFilterDigits(slotDigits) : undefined} />
               </div>
             </div>
           </div>
         </div>
         {/* Right Side: Winners List */}
         <div style={{ width: 340, display: "flex", justifyContent: "flex-end" }}>
-          <WinnersList blur={!allDigitsFilled} filterDigits={allDigitsFilled ? getFilterDigits(slotDigits) : undefined} />
+          <WinnersList blur={!allDigitsFilled} filterDigits={input.length === 6 ? getFilterDigits(slotDigits) : undefined} />
         </div>
       </div>
     </div>

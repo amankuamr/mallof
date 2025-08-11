@@ -10,13 +10,13 @@ import {
 
 export default function Dashboard() {
   const [input, setInput] = useState<string>("");
-  const [slotDigits, setSlotDigits] = useState([0, 0, 0, 0, 0]);
-  const [reels, setReels] = useState([[0], [0], [0], [0], [0]]);
-  const [offsets, setOffsets] = useState([0, 0, 0, 0, 0]);
+  const [slotDigits, setSlotDigits] = useState([0, 0, 0, 0, 0, 0]);
+  const [reels, setReels] = useState([[0], [0], [0], [0], [0], [0]]);
+  const [offsets, setOffsets] = useState([0, 0, 0, 0, 0, 0]);
   const [animating, setAnimating] = useState<boolean>(false);
-  const [spinning, setSpinning] = useState<boolean[]>([false, false, false, false, false]);
-  const [currentCol, setCurrentCol] = useState<number>(4);
-  const rafRefs = useRef<(number | null)[]>([null, null, null, null, null]);
+  const [spinning, setSpinning] = useState<boolean[]>([false, false, false, false, false, false]);
+  const [currentCol, setCurrentCol] = useState<number>(5);
+  const rafRefs = useRef<(number | null)[]>([null, null, null, null, null, null]);
   const bcRef = useRef<BroadcastChannel | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -31,11 +31,11 @@ export default function Dashboard() {
   }, [inputRef]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value.replace(/\D/g, "").slice(0, 5);
+    const val = e.target.value.replace(/\D/g, "").slice(0, 6);
     setInput(val);
   };
 
-  const displayDigits: string[] = Array(5 - input.length).fill("").concat(input.split("").reverse());
+  const displayDigits: string[] = Array(6 - input.length).fill("").concat(input.split("").reverse());
 
   const handleSearch = (): void => {
     if (!input || animating) return;
@@ -47,7 +47,7 @@ export default function Dashboard() {
     setAnimating(true);
     const itemHeight = 80;
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       if (rafRefs.current[i]) cancelAnimationFrame(rafRefs.current[i]!);
     }
 
@@ -140,8 +140,8 @@ export default function Dashboard() {
 
               if (currentCol === 0) {
                 setTimeout(() => {
-                  setSlotDigits([0, 0, 0, 0, 0]);
-                  setCurrentCol(4);
+                  setSlotDigits([0, 0, 0, 0, 0, 0]);
+                  setCurrentCol(5);
                 }, 1400);
                 setAnimating(false);
               } else {
@@ -188,7 +188,7 @@ export default function Dashboard() {
             type="text"
             value={input}
             onChange={handleInputChange}
-            maxLength={5}
+            maxLength={6}
             inputMode="numeric"
             pattern="[0-9]*"
             style={{
