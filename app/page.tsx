@@ -384,12 +384,15 @@ function WinnersList({ winners }: { winners: Player[] }) {
   // Only render animation on client
   const [isClient, setIsClient] = React.useState(false);
   const [showPartyPop, setShowPartyPop] = React.useState(false);
+  const [showBottomAnim, setShowBottomAnim] = React.useState(false);
   const prevWinnersRef = React.useRef<Player[]>([]);
+  const prev12thWinnerRef = React.useRef<string | null>(null);
 
   React.useEffect(() => { setIsClient(true); }, []);
 
   // Trigger party pop only when a new winner is added
   React.useEffect(() => {
+    // Animation for any new winner (existing logic)
     if (
       prevWinnersRef.current.length < winners.length &&
       winners.length > 0 &&
@@ -399,6 +402,20 @@ function WinnersList({ winners }: { winners: Player[] }) {
       setTimeout(() => setShowPartyPop(false), 4000); // Hide after 4 seconds
     }
     prevWinnersRef.current = winners;
+
+    // Animation for 1st card (top place)
+    const slots = Array(12).fill(null);
+    const reversedWinners = [...winners].reverse();
+    const start = Math.max(0, 12 - reversedWinners.length);
+    for (let i = 0; i < reversedWinners.length && i < 12; i++) {
+      slots[start + i] = reversedWinners[i];
+    }
+    const first = slots[0];
+    if (first && first.number !== prev12thWinnerRef.current) {
+      setShowBottomAnim(true);
+      setTimeout(() => setShowBottomAnim(false), 4000);
+    }
+    prev12thWinnerRef.current = first ? first.number : null;
   }, [winners]);
 
   return (
@@ -434,6 +451,31 @@ function WinnersList({ winners }: { winners: Player[] }) {
         WINNER
       </h2>
       <div style={{ position: 'relative', width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: 7 }}>
+        {/* Animation for 12th card (bottom place) */}
+        {/* Animation for 1st card (top place) - now over the card, no blur, small size */}
+        {isClient && showBottomAnim && (
+          <div style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            zIndex: 20,
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            pointerEvents: 'none',
+            height: 62,
+          }}>
+            <div style={{ position: 'relative', zIndex: 2 }}
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+                  <dotlottie-wc src="https://lottie.host/17656d20-0143-4539-92c8-d9543340e7a6/DU1ZXRZGdd.lottie" style="width:180px;height:180px;" speed="1" autoplay loop></dotlottie-wc>
+                `
+              }}
+            />
+          </div>
+        )}
         {isClient && showPartyPop && (
           <div
             dangerouslySetInnerHTML={{
@@ -449,6 +491,21 @@ function WinnersList({ winners }: { winners: Player[] }) {
           for (let i = 0; i < reversedWinners.length && i < 12; i++) {
             slots[start + i] = reversedWinners[i];
           }
+          // Define 12 unique prize names
+          const prizeNames = [
+            "Skoda Kylaq Car",
+            "Samsung TV -50 inch",
+            "Iplug Digital Door Locking System",
+            "Samsung Phone A36",
+            "Samsung Double door Refrigerator",
+            "Samsung Fully Automatic Washing Machine",
+            "Samsung Micro Oven",
+            "HiDesign Bags ",
+            "American Tourister Trolley Bags",           
+            "Faber Gas Stove",
+            "HiDesign Waist Bags",
+            "Dinner Set"
+          ];
           return slots.map((player, idx) => (
             <div
               key={player ? player.number + idx : 'placeholder-' + idx}
@@ -459,10 +516,11 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "flex-start",
-                padding: 10,
-                minHeight: 50,
-                maxHeight: 42,
+                padding: 12,
+                minHeight: 62,
+                maxHeight: 44,
                 marginBottom: 0,
+                marginRight: 16,
                 position: "relative",
                 zIndex: 1,
                 maxWidth: 300,
@@ -474,8 +532,8 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 background: '#222',
                 color: '#FFD700',
                 borderRadius: '50%',
-                width: 28,
-                height: 28,
+                width: 30,
+                height: 30,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -489,14 +547,19 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 src={"https://i.imgur.com/UXb3JYj.png"}
                 alt="player"
                 style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 17,
+                  width: 36,
+                  height: 36,
+                  borderRadius: 18,
                   marginRight: 10,
                   opacity: player ? 1 : 0.3
                 }}
               />
-              <span style={{ color: player ? "#fff" : "#aaa", fontWeight: "bold", fontSize: 15, marginRight: 10 }}>{player ? player.name : '---'}</span>
+              <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginRight: 10 }}>
+                <span style={{ color: player ? "#fff" : "#aaa", fontWeight: "bold", fontSize: 15 }}>{player ? player.name : '---'}</span>
+                {player && (
+                  <span style={{ color: "#FFD700", fontWeight: "bold", fontSize: 11, marginTop: 2 }}>{prizeNames[idx]}</span>
+                )}
+              </span>
               <span style={{ fontSize: 11, color: player ? '#222' : '#aaa', background: '#FFD700', borderRadius: 5, padding: '1px 7px', fontWeight: 600 }}>{player ? `#${player.number}` : '------'}</span>
             </div>
           ));
@@ -617,6 +680,8 @@ export default function Home() {
   const [allRevealed, setAllRevealed] = React.useState<boolean>(false);
   // Winner stacking state
   const [recentWinners, setRecentWinners] = React.useState<Player[]>([]);
+  // Animation overlay for first winner
+  const [showFirstWinnerAnim, setShowFirstWinnerAnim] = React.useState(false);
   // blurActive state removed; blur overlays are now controlled by allDigitsFilled
   const rafRefs = React.useRef<(number | null)[]>([null, null, null, null, null, null]);
 
@@ -665,6 +730,11 @@ export default function Home() {
         setRecentWinners(prev => {
           if (prev.some(w => w.number === filtered[0].number)) return prev;
           const next = [...prev, filtered[0]];
+          // Show animation overlay if this is the first winner
+          if (next.length === 1) {
+            setShowFirstWinnerAnim(true);
+            setTimeout(() => setShowFirstWinnerAnim(false), 4000);
+          }
           return next.length > 12 ? next.slice(-12) : next;
         });
       }, 2000);
@@ -909,7 +979,7 @@ export default function Home() {
         paddingTop: 60,
       }}
     >
-      {/* Gradient Blur Dots */}
+            {/* Gradient Blur Dots */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
         <div style={{ position: "absolute", top: 400, left: 40, width: 360, height: 460, borderRadius: "120%", background: "radial-gradient(circle at 30% 30%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(36px)" }} />
         <div style={{ position: "absolute", bottom: 60, right: 60, width: 320, height: 320, borderRadius: "100%", background: "radial-gradient(circle at 70% 70%, #ff00007c 0%, #ff5ecd00 80%)", filter: "blur(44px)" }} />
