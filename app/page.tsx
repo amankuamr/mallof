@@ -225,7 +225,8 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
       let el = ref.current;
       let end = el.scrollHeight - el.clientHeight;
       if (end <= 0) return;
-      let duration = 15000; // ms (slower scroll)
+      // Make scroll duration proportional to scrollable height (e.g., 60ms per pixel)
+      let duration = Math.max(15000, end * 60); // ms (always slow for big lists)
       let delay = 5000; // ms
       let direction = 1; // 1: down, -1: up
       function startScroll(): void {
