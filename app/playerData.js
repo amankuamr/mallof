@@ -3723,7 +3723,7 @@ export const players = [
 { number: "003721", name: "Junavd Akhtar" },
 { number: "003722", name: "Junavd Akhtar" },
 { number: "003723", name: "Minakshi Pandeya" },
-{ number: "003724", name: "Ritvik Pandeya" },
+{ number: "003724", name: "Sujata Kedia" },
 { number: "003725", name: "Pramod Bhagat" },
 { number: "003726", name: "Arman" },
 { number: "003727", name: "Nawaz" },
