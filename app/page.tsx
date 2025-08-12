@@ -595,7 +595,7 @@ function SlotMachineDigits({ reels, offsets, spinning }: SlotMachineDigitsProps)
     <div
       style={{
         position: "absolute",
-        top: "58%",
+        top: "69%",
         left: "46%",
         transform: "translate(-50%, -50%)",
         display: "flex",
@@ -1025,24 +1025,13 @@ export default function Home() {
         {/* Center Content */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: 0, position: "relative" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: 10,
-              padding: "10px 28px",
-            }}>
-              <span style={{ fontSize: 20, fontWeight: 700, marginRight: 16, paddingTop: 60, marginBottom: -60, display: 'inline-block' }}>
+            <div style={{ position: "relative", width: "500px", height: "auto", marginTop: 80, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span style={{ fontSize: 20, fontWeight: 700, marginBottom: 2, marginTop: 32, letterSpacing: 1, color: "#fff", textShadow: "0 2px 8px #000", display: 'block' }}>
                 <span style={{ color: "#fff" }}>Mega </span>
                 <span style={{ color: "red" }}>Lucky</span>
                 <span style={{ color: "#fff" }}> Draw - </span>
                 <span style={{ color: "red" }}>2025</span>
               </span>
-              {/* Digit input and display removed as requested */}
-              {/* Search button removed as requested */}
-            </div>
-            {/* Slot Machine Digits Overlay */}
-            <div style={{ position: "relative", width: "500px", height: "auto", marginTop: 40 }}>
               <img
                 src="/images/Group 34782.png"
                 alt="Centered"
@@ -1050,13 +1039,14 @@ export default function Home() {
                   width: "500px",
                   height: "auto",
                   display: "block",
+                  marginTop: 0,
                   marginBottom: 10,
                 }}
               />
               <SlotMachineDigits reels={reels} offsets={offsets} spinning={spinning} />
             </div>
             <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 0, paddingLeft: 24, paddingRight: 24, boxSizing: "border-box" }}>
-              <div style={{ fontSize: 26, fontWeight: 700, color: "#fff", marginBottom: 8, letterSpacing: 1, textAlign: "left", width: "100%" }}>
+              <div style={{ fontSize: 26, fontWeight: 700, color: "#fff", marginBottom: 5, letterSpacing: 1, textAlign: "left", width: "100%" }}>
                 Winner List
               </div>
               <div style={{
