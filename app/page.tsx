@@ -253,7 +253,7 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
     scrollDiv(rightRef);
   }, [filtered]);
 
-  const avatar = "https://i.imgur.com/UXb3JYj.png";
+  const avatar = "/images/user.png";
   const tableHeaderStyle = {
     display: "flex",
     justifyContent: "space-between",
@@ -545,7 +545,7 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 flexShrink: 0
               }}>{idx + 1}</span>
               <img
-                src={"https://i.imgur.com/UXb3JYj.png"}
+                src={"/images/user.png"}
                 alt="player"
                 style={{
                   width: 36,
