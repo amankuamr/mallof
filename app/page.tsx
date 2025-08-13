@@ -525,6 +525,26 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 width: '100%'
               }}
             >
+              {/* Coupon code tag in top right */}
+              {player && (
+                <span style={{
+                  position: 'absolute',
+                  top: 7,
+                  right: 9,
+                  background: '#FFD700',
+                  color: '#222',
+                  fontSize: 11,
+                  fontWeight: 600,
+                  padding: '1.5px 5px',
+                  borderRadius: 8,
+                  opacity: 1,
+                  boxShadow: '0 1px 8px #0001',
+                  border: '1px solid #eee',
+                  letterSpacing: 0.6
+                }}>
+                  #{player.number}
+                </span>
+              )}
               {/* Slot number, from top (1) to bottom (12) */}
               <span style={{
                 background: '#222',
@@ -553,12 +573,20 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 }}
               />
               <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginRight: 10 }}>
-                <span style={{ color: player ? "#fff" : "#aaa", fontWeight: "bold", fontSize: 15 }}>{player ? player.name : '---'}</span>
+                <span style={{ color: player ? "#fff" : "#aaa", fontWeight: "bold", fontSize: 12 }}>{player ? player.name : '---'}</span>
                 {player && (
-                  <span style={{ color: "#FFD700", fontWeight: "bold", fontSize: 11, marginTop: 2 }}>{prizeNames[idx]}</span>
+                  <span style={{ 
+                    color: "#FFD700", 
+                    fontWeight: "bold", 
+                    fontSize: 10, 
+                    marginTop: 2, 
+                    maxWidth: 140, 
+                    wordBreak: 'break-word', 
+                    whiteSpace: 'normal', 
+                    display: 'block',
+                  }}>{prizeNames[idx]}</span>
                 )}
               </span>
-              <span style={{ fontSize: 11, color: player ? '#222' : '#aaa', background: '#FFD700', borderRadius: 5, padding: '1px 7px', fontWeight: 600 }}>{player ? `#${player.number}` : '------'}</span>
             </div>
           ));
         })()}
