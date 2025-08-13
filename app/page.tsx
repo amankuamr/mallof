@@ -468,7 +468,7 @@ function WinnersList({ winners }: { winners: Player[] }) {
             alignItems: 'flex-start',
             justifyContent: 'center',
             pointerEvents: 'none',
-            height: 62,
+            height: 60,
           }}>
             <div style={{ position: 'relative', zIndex: 2 }}
               dangerouslySetInnerHTML={{
@@ -521,8 +521,8 @@ function WinnersList({ winners }: { winners: Player[] }) {
                 alignItems: "center",
                 justifyContent: "flex-start",
                 padding: 12,
-                minHeight: 62,
-                maxHeight: 44,
+                minHeight: 56,
+                maxHeight: 43,
                 marginBottom: 0,
                 marginRight: 16,
                 position: "relative",
