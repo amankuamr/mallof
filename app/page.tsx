@@ -1099,7 +1099,7 @@ export default function Home() {
             textShadow: 'none',
             }}>
             Event of Distinction<br />
-            Tech Codesta
+            Tech Codestam
             </div>
             </div>
           </div>
