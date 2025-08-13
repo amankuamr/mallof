@@ -37,8 +37,6 @@ function PoweredByCard() {
         textAlign: 'left',
         textTransform: 'uppercase',
         fontFamily: 'Inter, Roboto, sans-serif',
-        borderLeft: '3px solid #FFD700',
-        padding: '1px 0 1px 10px',
         boxShadow: '0 1px 4px 0 rgba(255,215,0,0.08)'
       }}>
         Title Sponsor
@@ -58,12 +56,10 @@ function PoweredByCard() {
           textAlign: 'left',
           textTransform: 'uppercase',
           fontFamily: 'Inter, Roboto, sans-serif',
-          borderLeft: '3px solid #1E90FF',
-          padding: '1px 0 1px 10px',
           boxShadow: '0 1px 4px 0 rgba(30,144,255,0.08)'
-        }}>
+          }}>
           Co Sponsors
-        </div>
+          </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: 8 }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
             <div style={{ width: '100%', height: 40, background: '#fff', borderRadius: 10, marginBottom: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: 15, color: '#fff', letterSpacing: 0.5, overflow: 'hidden' }}>
@@ -98,8 +94,6 @@ function PoweredByCard() {
         textAlign: 'left',
         textTransform: 'uppercase',
         fontFamily: 'Inter, Roboto, sans-serif',
-        borderLeft: '3px solid #3CB371',
-        padding: '1px 0 1px 10px',
         boxShadow: '0 1px 4px 0 rgba(60,179,113,0.08)'
       }}>
         Sponsors
@@ -1019,7 +1013,7 @@ export default function Home() {
         }}
       >
         {/* Left Side: Powered By Card */}
-        <div style={{ width: 360, display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", height: "100%", marginTop: -100 }}>
+        <div style={{ width: 360, display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", height: "100%", marginTop: -100, paddingBottom: 70 }}>
           <div style={{ marginBottom: 12, marginTop: 8, fontSize: 28, fontWeight: 700, letterSpacing: 1 }}>
             <span style={{ color: "red" }}>Sponsors</span>
           </div>
@@ -1061,6 +1055,23 @@ export default function Home() {
               }} />
               <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
               <WinnerTables blur={!allDigitsFilled} filterDigits={input} />
+            </div>
+            {/* Centered message below the two tables */}
+            <div style={{
+            width: '100%',
+            textAlign: 'center',
+            marginTop: 28,
+            marginBottom: 20,
+            fontWeight: 'normal',
+            fontStyle: 'italic',
+            fontSize: 11,
+            color: '#fff',
+            opacity: 0.3,
+            letterSpacing: 1,
+            textShadow: 'none',
+            }}>
+            Event of Distinction<br />
+            Tech Codesta
             </div>
             </div>
           </div>
