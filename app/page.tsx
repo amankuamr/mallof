@@ -277,13 +277,16 @@ function WinnerTables({ blur, filterDigits }: WinnerTablesProps) {
   const rankStyle = {
     background: "#00c853",
     color: "white",
-    width: 22,
+    minWidth: 22,
     height: 22,
-    borderRadius: "50%",
+    padding: "0 8px",
+    borderRadius: "999px",
     fontSize: 12,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    overflow: "hidden",
+    whiteSpace: "nowrap"
   };
   const avatarStyle: React.CSSProperties = {
     width: 30,
